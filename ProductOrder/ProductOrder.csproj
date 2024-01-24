@@ -43,15 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entites\Client.cs" />
+    <Compile Include="Entites\Order.cs" />
+    <Compile Include="Entites\OrderItem.cs" />
+    <Compile Include="Entites\Product.cs" />
+    <Compile Include="Enum\OrderStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entites\" />
-    <Folder Include="Enum\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
