@@ -8,5 +8,15 @@ namespace ProductOrder.Entites
 {
     internal class Client
     {
+        public string name { get; set; }
+        public String email { get; set; }
+        public DateTime birthDate { get; set; }
+
+        public Client(string name, string email, DateTime birthDate)
+        {
+            this.name = name;
+            this.email = email;
+            this.birthDate = birthDate;
+        }
     }
 }
