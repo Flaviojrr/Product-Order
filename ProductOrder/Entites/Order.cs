@@ -14,16 +14,16 @@ namespace ProductOrder.Entites
         public OrderStatus status { get; set; }
         public OrderItem item { get; set; }
         public Client client { get; set; }
-
+        List<OrderItem> items = new List<OrderItem>();
+        
         public Order(DateTime moment, OrderStatus status, OrderItem item, Client client)
         {
             this.moment = moment;
             this.status = status;
             this.item = item;
             this.client = client;
+            addItem(item);
         }
-
-        List<OrderItem> items = new List<OrderItem>();
 
         public void addItem(OrderItem item)
         {
@@ -41,15 +41,19 @@ namespace ProductOrder.Entites
             }
             return sum; 
         }
-        public override string ToString()
+        
+        public void print(int count)
         {
-            return "ORDER SUMMARY:" +
+            Console.Write("ORDER SUMMARY:" +
                 "\nOrder moment: " + moment +
                 "\nOrder Status: " + status +
-                "\n" + client.ToString() +
-                "\n" + items.ToString() +
-                "\nTotal price: $" + total();
-
+                "\n" + client.ToString()+
+                "\nOrder Items: ");
+            foreach (OrderItem item in items)
+            {
+               Console.WriteLine(item.product +" a "+ item.price + item.quantity + item.subTotal());
+            }
+            Console.Write("\nTotal price: $" + total());
         }
-    }
+        }
 }

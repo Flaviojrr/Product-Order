@@ -15,6 +15,7 @@ namespace ProductOrder
             bool op;
             OrderStatus status;
             Order newOrder;
+            int i=0;
             Console.Write("Enter cliente data: \nName: ");
             string newName = Console.ReadLine();
             Console.Write("Email: ");
@@ -22,7 +23,6 @@ namespace ProductOrder
             Console.Write("Birth date (DD/MM/YYYY): ");
             DateTime newBirthDate = DateTime.Now;
             Client newClient = new Client(newName, newEmail,newBirthDate);
-            
             do
             {
                 Console.Write("Enter order data: \nStatus: ");
@@ -37,10 +37,9 @@ namespace ProductOrder
                     op=true;
                 }
             } while (op != true);
-            
             Console.Write("How many items to this order? ");
             int itemsQuantities = int.Parse(Console.ReadLine());
-            for(int i=0;i<itemsQuantities;i++) 
+            do
             {
                 Console.Write($"Enter #{i} item data \nProduct name: ");
                 string newProductName = Console.ReadLine();
@@ -49,10 +48,11 @@ namespace ProductOrder
                 Console.Write("Quantity: ");
                 int productQuantity = int.Parse(Console.ReadLine());
                 Product newItem = new Product(newProductName, newProductPrice);
-                OrderItem newOrderItem = new OrderItem(productQuantity,newProductPrice,newItem);
-                newOrder = new Order(newBirthDate,status,newOrderItem,newClient);
-            }
-            Console.WriteLine(newOrder.ToString());
+                OrderItem newOrderItem = new OrderItem(productQuantity, newProductPrice, newItem);
+                newOrder = new Order(newBirthDate, status, newOrderItem, newClient);
+                i++;
+            } while (i< itemsQuantities);
+            newOrder.print(itemsQuantities);
         }
     }
 }

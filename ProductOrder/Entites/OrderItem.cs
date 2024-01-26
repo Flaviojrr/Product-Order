@@ -24,8 +24,7 @@ namespace ProductOrder.Entites
         }
         public override string ToString()
         {
-            return "Order items: " +
-                "\n" + product.ToString() + ", Quantity: " + quantity + ", Subtotal: $" + subTotal();
+            return product.ToString() + ", Quantity: " + quantity + ", Subtotal: $" + subTotal();
         }
     }
 }
