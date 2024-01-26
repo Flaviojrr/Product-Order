@@ -18,5 +18,9 @@ namespace ProductOrder.Entites
             this.email = email;
             this.birthDate = birthDate;
         }
+        public override string ToString()
+        {
+            return "Client: " + name + "("+birthDate + ") - " + email;
+        }
     }
 }

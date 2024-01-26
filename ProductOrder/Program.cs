@@ -14,12 +14,13 @@ namespace ProductOrder
         {
             bool op;
             OrderStatus status;
+            Order newOrder;
             Console.Write("Enter cliente data: \nName: ");
             string newName = Console.ReadLine();
             Console.Write("Email: ");
             string newEmail = Console.ReadLine();
             Console.Write("Birth date (DD/MM/YYYY): ");
-            DateTime newBirthDate = DateTime.Parse(Console.ReadLine());
+            DateTime newBirthDate = DateTime.Now;
             Client newClient = new Client(newName, newEmail,newBirthDate);
             
             do
@@ -48,10 +49,10 @@ namespace ProductOrder
                 Console.Write("Quantity: ");
                 int productQuantity = int.Parse(Console.ReadLine());
                 Product newItem = new Product(newProductName, newProductPrice);
-                OrderItem newOrderItem = new OrderItem(productQuantity, productQuantity);
-                Order newOrder = new Order();
+                OrderItem newOrderItem = new OrderItem(productQuantity,newProductPrice,newItem);
+                newOrder = new Order(newBirthDate,status,newOrderItem,newClient);
             }
-
+            Console.WriteLine(newOrder.ToString());
         }
     }
 }

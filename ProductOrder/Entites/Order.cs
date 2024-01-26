@@ -41,5 +41,15 @@ namespace ProductOrder.Entites
             }
             return sum; 
         }
+        public override string ToString()
+        {
+            return "ORDER SUMMARY:" +
+                "\nOrder moment: " + moment +
+                "\nOrder Status: " + status +
+                "\n" + client.ToString() +
+                "\n" + items.ToString() +
+                "\nTotal price: $" + total();
+
+        }
     }
 }
