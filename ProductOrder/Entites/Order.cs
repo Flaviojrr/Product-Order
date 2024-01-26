@@ -1,4 +1,4 @@
-﻿using ProductOrder.Enum;
+﻿using ProductOrder.Entites.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,18 @@ namespace ProductOrder.Entites
         public DateTime moment { get; set; }
         public OrderStatus status { get; set; }
         public OrderItem item { get; set; }
+        public Client client { get; set; }
+
+        public Order(DateTime moment, OrderStatus status, OrderItem item, Client client)
+        {
+            this.moment = moment;
+            this.status = status;
+            this.item = item;
+            this.client = client;
+        }
+
         List<OrderItem> items = new List<OrderItem>();
+
         public void addItem(OrderItem item)
         {
             items.Add(item);

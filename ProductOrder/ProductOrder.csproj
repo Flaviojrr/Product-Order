@@ -47,7 +47,7 @@
     <Compile Include="Entites\Order.cs" />
     <Compile Include="Entites\OrderItem.cs" />
     <Compile Include="Entites\Product.cs" />
-    <Compile Include="Enum\OrderStatus.cs" />
+    <Compile Include="Entites\Enum\OrderStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
